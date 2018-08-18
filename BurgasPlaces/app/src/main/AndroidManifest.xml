@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.rachev.burgasplaces">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:name=".AndroidApplication"
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:icon="@drawable/ic_shortcut_place"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_shortcut_place"
+        android:supportsRtl="true"
+        android:theme="@style/MaterialDrawerTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".views.favourites.FavouritePlacesListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".views.barcafes.BarCafesListActivity" />
+        <activity android:name=".views.nightclubs.NightclubsListActivity" />
+        <activity android:name=".views.restaurants.RestaurantsListActivity" />
+        <activity
+            android:name=".views.details.PlaceDetailsActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity android:name=".views.dayandnight.DayAndNightPlacesListActivity" />
+        <activity android:name=".views.fastfood.FastFoodPlacesListActivity"></activity>
+    </application>
+
+</manifest>

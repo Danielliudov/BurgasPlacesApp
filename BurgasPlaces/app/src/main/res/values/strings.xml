@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">BurgasPlaces</string>
+    <string name="burgas_places">Burgas Places</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recommended">Препоръчани</string>
+    <string name="place_address">Place address</string>
+    <string name="place_name">Place name</string>
+    <string name="place_open_hours">Place open hours</string>
+    <string name="place_short_info">Place short info</string>
+    <string name="the_place_s_phone">The place\'s phone</string>
+    <string name="total_seats_available">Total seats available</string>
+    <string name="the_phone_number_of_the_place">The phone number of the place</string>
+    <string name="textview">TextView</string>
+    <string name="place_image">Place image</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="the_icon_of_the_app">The icon of the app</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_account_sign_up">Don\'t have account? Sign Up</string>
+    <string name="tap_on_the_camera_to_choose_profile_picture">Tap on the camera to choose profile picture</string>
+    <string name="camera_icon">Camera icon</string>
+    <string name="verified">Verified</string>
+    <string name="save">Save</string>
+    <string name="enter_display_name">Enter Display Name</string>
+    <string name="logout">Logout</string>
+    <string name="customlist_image_view">CustomList Image view</string>
+    <string name="previewer_image">Previewer image</string>
+</resources>

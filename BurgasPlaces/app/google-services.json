@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "340877777830",
+    "firebase_url": "https://android-alpha-demo-a31ce.firebaseio.com",
+    "project_id": "android-alpha-demo-a31ce",
+    "storage_bucket": "android-alpha-demo-a31ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340877777830:android:8be4de35bde63e7d",
+        "android_client_info": {
+          "package_name": "com.rachev.burgasplaces"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "340877777830-csvu7m00inf08c5f3ukep4gg50grp3s4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI7GXzPzd5OAQ7hIfP7pqLQb6lzIJo05E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
