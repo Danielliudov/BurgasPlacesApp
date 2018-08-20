@@ -48,14 +48,14 @@ public abstract class BaseDrawerActivity extends AppCompatActivity
         
         PrimaryDrawerItem listCafesItem = new PrimaryDrawerItem()
                 .withIdentifier(BarCafesListActivity.IDENTIFIER)
-                .withIcon(R.drawable.ic_local_drink)
+                .withIcon(R.drawable.ic_free_breakfast)
                 .withTextColor(ContextCompat.getColor(this, R.color.materialize_primary_light))
                 .withSelectedTextColor(ContextCompat.getColor(this, R.color.materialize_primary_light))
                 .withName(Constants.BAR_CAFES_TITLE);
         
         PrimaryDrawerItem listNightclubsItem = new PrimaryDrawerItem()
                 .withIdentifier(NightclubsListActivity.IDENTIFIER)
-                .withIcon(R.drawable.ic_accessibility_new)
+                .withIcon(R.drawable.ic_brightness_2)
                 .withTextColor(ContextCompat.getColor(this, R.color.materialize_primary_light))
                 .withSelectedTextColor(ContextCompat.getColor(this, R.color.materialize_primary_light))
                 .withName(Constants.NIGHTCLUBS_TITLE);
