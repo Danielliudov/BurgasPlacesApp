@@ -6,9 +6,9 @@
 
 **<h1>Screenshots: </h1>**
 
-![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/list.jpg)
-![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/details.jpg)
-![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/drawer.jpg)
+![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/list.png)
+![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/details.png)
+![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/drawer.png)
 
 **<h1>UML Diagram:</h1>**
 
