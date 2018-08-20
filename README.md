@@ -6,7 +6,7 @@
 
 **<h1>Screenshots: </h1>**
 
-![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/list.png | width=200)
+![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/list.png)
 ![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/details.png)
 ![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/drawer.png)
 
