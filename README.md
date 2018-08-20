@@ -13,5 +13,5 @@
 ![](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/drawer.png =300x533)
 
 **<h1>UML Diagram:</h1>**
-
+<img src=https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/drawer.png" width="300" height="533" />
 ![](https://github.com/brightVision97/BurgasPlacesApp/blob/master/uml_diagram.bmp)
