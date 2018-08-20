@@ -9,7 +9,7 @@ import com.rachev.burgasplaces.R;
 import com.rachev.burgasplaces.constants.Constants;
 import com.rachev.burgasplaces.models.Place;
 import com.rachev.burgasplaces.uiutils.Navigator;
-import com.rachev.burgasplaces.views.drawer.BaseDrawerActivity;
+import com.rachev.burgasplaces.views.base.BaseDrawerActivity;
 import com.rachev.burgasplaces.views.details.PlaceDetailsActivity;
 import com.rachev.burgasplaces.views.details.PlaceDetailsFragment;
 
@@ -55,7 +55,6 @@ public class FavouritePlacesListActivity extends BaseDrawerActivity implements N
     protected void onResume()
     {
         super.onResume();
-        
         this.mDoubleBackToExitPressedOnce = false;
     }
     
@@ -79,7 +78,6 @@ public class FavouritePlacesListActivity extends BaseDrawerActivity implements N
         if (mIsPhone)
         {
             Intent intent = new Intent(this, PlaceDetailsActivity.class);
-            
             intent.putExtra("obj", place);
             
             startActivity(intent);

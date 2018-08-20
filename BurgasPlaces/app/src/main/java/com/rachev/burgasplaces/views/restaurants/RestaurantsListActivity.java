@@ -8,7 +8,7 @@ import com.rachev.burgasplaces.R;
 import com.rachev.burgasplaces.constants.Constants;
 import com.rachev.burgasplaces.models.Place;
 import com.rachev.burgasplaces.uiutils.Navigator;
-import com.rachev.burgasplaces.views.drawer.BaseDrawerActivity;
+import com.rachev.burgasplaces.views.base.BaseDrawerActivity;
 import com.rachev.burgasplaces.views.details.PlaceDetailsActivity;
 import com.rachev.burgasplaces.views.details.PlaceDetailsFragment;
 
@@ -27,7 +27,7 @@ public class RestaurantsListActivity extends BaseDrawerActivity implements Navig
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurants_list);
         setTitle(Constants.RESTAURANTS_TITLE);
-    
+        
         mToolbar = findViewById(R.id.drawer_toolbar);
         setSupportActionBar(mToolbar);
         
@@ -35,7 +35,7 @@ public class RestaurantsListActivity extends BaseDrawerActivity implements Navig
         mRestaurantsListFragment.setNavigator(this);
         
         mIsPhone = findViewById(R.id.content_restaurants_details) == null;
-    
+        
         FragmentTransaction transaction = getFragmentManager()
                 .beginTransaction()
                 .replace(R.id.content_restaurants, mRestaurantsListFragment);
@@ -55,9 +55,8 @@ public class RestaurantsListActivity extends BaseDrawerActivity implements Navig
         if (mIsPhone)
         {
             Intent intent = new Intent(this, PlaceDetailsActivity.class);
-        
             intent.putExtra("obj", place);
-        
+            
             startActivity(intent);
         } else
             mPlaceDetailsFragment.setPlace(place);

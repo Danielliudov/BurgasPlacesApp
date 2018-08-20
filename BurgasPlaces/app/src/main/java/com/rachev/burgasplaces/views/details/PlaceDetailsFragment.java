@@ -18,11 +18,10 @@ import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.StorageReference;
-import com.rachev.burgasplaces.AndroidApplication;
+import com.rachev.burgasplaces.BurgasPlacesApp;
 import com.rachev.burgasplaces.R;
 import com.rachev.burgasplaces.constants.Constants;
 import com.rachev.burgasplaces.models.Place;
-import com.rachev.burgasplaces.views.favourites.FavouritePlacesListFragment;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -88,38 +87,14 @@ public class PlaceDetailsFragment extends Fragment
                 materialFavoriteButton.setFavorite(false);
             }
             
-            FirebaseFirestore.getInstance()
-                    .collection("places")
-                    .document(mPlace.getDocumentId())
-                    .set(mPlace, SetOptions.merge())
-                    .addOnSuccessListener(aVoid ->
-                            Toast.makeText(
-                                    getContext(),
-                                    Constants.PLACE_FAV_ADDED_MSG,
-                                    Toast.LENGTH_SHORT)
-                                    .show())
-                    .addOnFailureListener(e ->
-                            Toast.makeText(getContext(),
-                                    e.getMessage(),
-                                    Toast.LENGTH_SHORT)
-                                    .show());
+            updateIsFavouriteValue();
         });
         
         mDialFloatingActionButton = view.findViewById(R.id.fab);
         mDialFloatingActionButton.setOnClickListener(v ->
         {
-            Intent intent = new Intent(Intent.ACTION_DIAL);
-            intent.setData(Uri.parse("tel:" + mPlace.getContactPhone()));
-            
-            if (ActivityCompat.checkSelfPermission(getContext(),
-                    Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
-                ActivityCompat.requestPermissions(getActivity(),
-                        new String[]{Manifest.permission.CALL_PHONE}, Constants.DIALER_REQUEST_CODE);
-            else
-            {
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
+            Intent intent = getDialIntent();
+            startActivity(intent);
         });
         
         mPlaceImageView = view.findViewById(R.id.iv_place);
@@ -128,9 +103,46 @@ public class PlaceDetailsFragment extends Fragment
         return view;
     }
     
+    private Intent getDialIntent()
+    {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + mPlace.getContactPhone()));
+        
+        if (ActivityCompat.checkSelfPermission(
+                getContext(),
+                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(
+                    getActivity(),
+                    new String[]{Manifest.permission.CALL_PHONE},
+                    Constants.DIALER_REQUEST_CODE);
+        else
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        
+        return intent;
+    }
+    
+    private void updateIsFavouriteValue()
+    {
+        FirebaseFirestore.getInstance()
+                .collection("places")
+                .document(mPlace.getDocumentId())
+                .set(mPlace, SetOptions.merge())
+                .addOnSuccessListener(aVoid ->
+                        Toast.makeText(
+                                getContext(),
+                                Constants.PLACE_FAV_ADDED_MSG,
+                                Toast.LENGTH_SHORT)
+                                .show())
+                .addOnFailureListener(e ->
+                        Toast.makeText(getContext(),
+                                e.getMessage(),
+                                Toast.LENGTH_SHORT)
+                                .show());
+    }
+    
     private void loadPlaceImage()
     {
-        StorageReference load = AndroidApplication.getStorageReference()
+        StorageReference load = BurgasPlacesApp.getStorageReference()
                 .child("/places/" + mPlace.getName().toLowerCase() + ".jpg");
         
         load.getDownloadUrl().addOnSuccessListener(uri ->

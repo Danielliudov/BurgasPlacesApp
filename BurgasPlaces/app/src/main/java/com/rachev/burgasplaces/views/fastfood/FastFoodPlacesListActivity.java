@@ -10,7 +10,7 @@ import com.rachev.burgasplaces.models.Place;
 import com.rachev.burgasplaces.uiutils.Navigator;
 import com.rachev.burgasplaces.views.details.PlaceDetailsActivity;
 import com.rachev.burgasplaces.views.details.PlaceDetailsFragment;
-import com.rachev.burgasplaces.views.drawer.BaseDrawerActivity;
+import com.rachev.burgasplaces.views.base.BaseDrawerActivity;
 
 public class FastFoodPlacesListActivity extends BaseDrawerActivity implements Navigator
 {
@@ -56,7 +56,6 @@ public class FastFoodPlacesListActivity extends BaseDrawerActivity implements Na
         if (mIsPhone)
         {
             Intent intent = new Intent(this, PlaceDetailsActivity.class);
-            
             intent.putExtra("obj", place);
             
             startActivity(intent);

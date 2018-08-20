@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
-        android:name=".AndroidApplication"
+        android:name=".BurgasPlacesApp"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@drawable/ic_shortcut_place"
@@ -16,23 +16,33 @@
         android:supportsRtl="true"
         android:theme="@style/MaterialDrawerTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".views.favourites.FavouritePlacesListActivity">
+        <activity
+            android:name=".views.favourites.FavouritePlacesListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.barcafes.BarCafesListActivity" />
-        <activity android:name=".views.nightclubs.NightclubsListActivity" />
+        <activity
+            android:name=".views.barcafes.BarCafesListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name=".views.nightclubs.NightclubsListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity
             android:name=".views.restaurants.RestaurantsListActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity
             android:name=".views.details.PlaceDetailsActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
-        <activity android:name=".views.dayandnight.DayAndNightPlacesListActivity" />
-        <activity android:name=".views.fastfood.FastFoodPlacesListActivity" />
+        <activity
+            android:name=".views.dayandnight.DayAndNightPlacesListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name=".views.fastfood.FastFoodPlacesListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
     </application>
 
 </manifest>

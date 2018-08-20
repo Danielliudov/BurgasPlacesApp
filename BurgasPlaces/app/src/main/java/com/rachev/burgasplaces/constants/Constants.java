@@ -22,8 +22,6 @@ public class Constants
     public static final String PALCE_FAV_REMOVED_MSG = "Заведението премахнато от любими";
     public static final String DOUBLE_BACK_TOAST_MSG = "Натиснете още веднъж за изход";
     
-    public static final String LIST_INSTANCE_STATE = "scrollPositionState";
-    
     // request call for the dial task
     public static final int DIALER_REQUEST_CODE = 10;
 }

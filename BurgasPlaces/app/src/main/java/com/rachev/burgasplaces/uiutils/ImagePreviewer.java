@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import com.google.firebase.storage.StorageReference;
-import com.rachev.burgasplaces.AndroidApplication;
+import com.rachev.burgasplaces.BurgasPlacesApp;
 import com.rachev.burgasplaces.R;
 import com.squareup.picasso.Picasso;
 
@@ -28,9 +28,11 @@ public class ImagePreviewer
         
         ImageView imageView = dialogView.findViewById(R.id.previewer_image);
         
-        String imgName = source.getItemAtPosition(position).toString().toLowerCase();
+        String imgName = source.getItemAtPosition(position)
+                .toString()
+                .toLowerCase();
         
-        StorageReference load = AndroidApplication.getStorageReference()
+        StorageReference load = BurgasPlacesApp.getStorageReference()
                 .child("/places/" + imgName + ".jpg");
         
         load.getDownloadUrl().addOnSuccessListener(uri ->

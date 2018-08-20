@@ -41,8 +41,10 @@ public class ImagePreviewerUtils
         
         RenderScript rs = RenderScript.create(context);
         ScriptIntrinsicBlur theIntrinsic = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));
+        
         Allocation tmpIn = Allocation.createFromBitmap(rs, inputBitmap);
         Allocation tmpOut = Allocation.createFromBitmap(rs, outputBitmap);
+        
         theIntrinsic.setRadius(blurRadius);
         theIntrinsic.setInput(tmpIn);
         theIntrinsic.forEach(tmpOut);

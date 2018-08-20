@@ -25,10 +25,4 @@ public class PlaceDetailsActivity extends Activity
                 .replace(R.id.content_details, mPlaceDetailsFragment)
                 .commit();
     }
-    
-    @Override
-    protected void onDestroy()
-    {
-        super.onDestroy();
-    }
 }
