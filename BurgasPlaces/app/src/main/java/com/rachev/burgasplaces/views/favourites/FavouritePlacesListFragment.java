@@ -53,10 +53,10 @@ public class FavouritePlacesListFragment extends Fragment implements AdapterView
         mFavouritePlaces = new ArrayList<>();
         AndroidApplication.getSuperheroRepository().getAll(places ->
                 places.stream()
-                        .filter(place -> place.isFavourite)
+                        .filter(Place::isFavourite)
                         .forEach(place ->
                         {
-                            mFavouritePlacesAdapter.add(place.name);
+                            mFavouritePlacesAdapter.add(place.getName());
                             mFavouritePlaces.add(place);
                         }));
         

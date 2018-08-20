@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import com.mikepenz.materialdrawer.AccountHeader;
+import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
@@ -66,10 +68,20 @@ public abstract class BaseDrawerActivity extends AppCompatActivity
                 .withTextColor(ContextCompat.getColor(this, R.color.materialize_primary_light))
                 .withSelectedTextColor(ContextCompat.getColor(this, R.color.materialize_primary_light))
                 .withName(Constants.DAY_AND_NIGHT_PLACES_TITLE);
+    
+        AccountHeader header = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.drawable.header)
+                .withTranslucentStatusBar(true)
+                .withCompactStyle(true)
+                .build();
         
         Drawer drawer = new DrawerBuilder()
                 .withActivity(this)
+                .withCloseOnClick(true)
+                .withTranslucentStatusBar(true)
                 .withToolbar(getDrawerToolbar())
+                .withAccountHeader(header)
                 .addDrawerItems(
                         listFavouritesItem,
                         new DividerDrawerItem(),

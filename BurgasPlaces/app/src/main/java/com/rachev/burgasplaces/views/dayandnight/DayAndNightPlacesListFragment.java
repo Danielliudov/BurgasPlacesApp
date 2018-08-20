@@ -55,10 +55,10 @@ public class DayAndNightPlacesListFragment extends Fragment implements AdapterVi
         mDayAndNightPlaces = new ArrayList<>();
         AndroidApplication.getSuperheroRepository().getAll(places ->
                 places.stream()
-                        .filter(place -> place.openHours.equals(Constants.ALL_DAY))
+                        .filter(place -> place.getOpenHours().equals(Constants.ALL_DAY))
                         .forEach(place ->
                         {
-                            mDayAndNightPlacesAdapter.add(place.name);
+                            mDayAndNightPlacesAdapter.add(place.getName());
                             mDayAndNightPlaces.add(place);
                         }));
         

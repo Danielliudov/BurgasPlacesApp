@@ -54,10 +54,10 @@ public class FastFoodPlacesListFragment extends Fragment implements AdapterView.
         mFastFoodPlaces = new ArrayList<>();
         AndroidApplication.getSuperheroRepository().getAll(places ->
                 places.stream()
-                        .filter(place -> place.type.equals(Constants.FASTFOOD))
+                        .filter(place -> place.getType().equals(Constants.FASTFOOD))
                         .forEach(place ->
                         {
-                            mFastFoodPlacesAdapter.add(place.name);
+                            mFastFoodPlacesAdapter.add(place.getName());
                             mFastFoodPlaces.add(place);
                         }));
         

@@ -54,10 +54,10 @@ public class NightclubsListFragment extends Fragment implements AdapterView.OnIt
         mNightclubs = new ArrayList<>();
         AndroidApplication.getSuperheroRepository().getAll(places ->
                 places.stream()
-                        .filter(place -> place.type.equals(Constants.NIGHTCLUB))
+                        .filter(place -> place.getType().equals(Constants.NIGHTCLUB))
                         .forEach(place ->
                         {
-                            mNightclubsAdapter.add(place.name);
+                            mNightclubsAdapter.add(place.getName());
                             mNightclubs.add(place);
                         }));
         

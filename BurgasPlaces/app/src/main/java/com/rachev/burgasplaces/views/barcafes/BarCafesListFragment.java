@@ -55,10 +55,10 @@ public class BarCafesListFragment extends Fragment implements AdapterView.OnItem
         mBarCafes = new ArrayList<>();
         AndroidApplication.getSuperheroRepository().getAll(places ->
                 places.stream()
-                        .filter(place -> place.type.equals(Constants.BAR_CAFE))
+                        .filter(place -> place.getType().equals(Constants.BAR_CAFE))
                         .forEach(place ->
                         {
-                            mBarCafesAdapter.add(place.name);
+                            mBarCafesAdapter.add(place.getName());
                             mBarCafes.add(place);
                         }));
         

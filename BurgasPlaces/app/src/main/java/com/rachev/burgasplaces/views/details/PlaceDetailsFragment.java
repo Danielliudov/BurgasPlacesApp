@@ -22,6 +22,7 @@ import com.rachev.burgasplaces.AndroidApplication;
 import com.rachev.burgasplaces.R;
 import com.rachev.burgasplaces.constants.Constants;
 import com.rachev.burgasplaces.models.Place;
+import com.rachev.burgasplaces.views.favourites.FavouritePlacesListFragment;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -56,16 +57,16 @@ public class PlaceDetailsFragment extends Fragment
         View view = inflater.inflate(R.layout.fragment_place_details, container, false);
         
         mPlaceNameTextView = view.findViewById(R.id.tv_place_name);
-        mPlaceNameTextView.setText(mPlace.name);
+        mPlaceNameTextView.setText(mPlace.getName());
         
         mPlaceAddressTextView = view.findViewById(R.id.tv_place_address);
-        mPlaceAddressTextView.setText(String.format("Адрес: %s", mPlace.address));
+        mPlaceAddressTextView.setText(String.format("Адрес: %s", mPlace.getAddress()));
         
         mPlaceOpenHoursTextView = view.findViewById(R.id.tv_place_open_hours);
-        mPlaceOpenHoursTextView.setText(String.format("Работно време: %s", mPlace.openHours));
+        mPlaceOpenHoursTextView.setText(String.format("Работно време: %s", mPlace.getOpenHours()));
         
         mPlaceShortInfoTextView = view.findViewById(R.id.tv_place_short_info);
-        mPlaceShortInfoTextView.setText(mPlace.shortInfo);
+        mPlaceShortInfoTextView.setText(mPlace.getShortInfo());
         
         materialFavoriteButton = view.findViewById(R.id.fav_button);
         if (mPlace.isFavourite)
@@ -79,48 +80,36 @@ public class PlaceDetailsFragment extends Fragment
         {
             if (favorite)
             {
-                mPlace.isFavourite = true;
+                mPlace.setFavourite(true);
                 materialFavoriteButton.setAnimateFavorite(true);
-                
-                FirebaseFirestore.getInstance()
-                        .collection("places")
-                        .document(mPlace.documentId)
-                        .set(mPlace, SetOptions.merge())
-                        .addOnSuccessListener(aVoid ->
-                                Toast.makeText(
-                                        getContext(),
-                                        Constants.PLACE_FAV_ADDED_MSG,
-                                        Toast.LENGTH_SHORT)
-                                        .show())
-                        .addOnFailureListener(e ->
-                                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT)
-                                        .show());
             } else
             {
-                mPlace.isFavourite = false;
+                mPlace.setFavourite(false);
                 materialFavoriteButton.setFavorite(false);
-                
-                FirebaseFirestore.getInstance()
-                        .collection("places")
-                        .document(mPlace.documentId)
-                        .set(mPlace, SetOptions.merge())
-                        .addOnSuccessListener(aVoid ->
-                                Toast.makeText(
-                                        getContext(),
-                                        Constants.PALCE_FAV_REMOVED_MSG,
-                                        Toast.LENGTH_SHORT)
-                                        .show())
-                        .addOnFailureListener(e ->
-                                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT)
-                                        .show());
             }
+            
+            FirebaseFirestore.getInstance()
+                    .collection("places")
+                    .document(mPlace.getDocumentId())
+                    .set(mPlace, SetOptions.merge())
+                    .addOnSuccessListener(aVoid ->
+                            Toast.makeText(
+                                    getContext(),
+                                    Constants.PLACE_FAV_ADDED_MSG,
+                                    Toast.LENGTH_SHORT)
+                                    .show())
+                    .addOnFailureListener(e ->
+                            Toast.makeText(getContext(),
+                                    e.getMessage(),
+                                    Toast.LENGTH_SHORT)
+                                    .show());
         });
         
         mDialFloatingActionButton = view.findViewById(R.id.fab);
         mDialFloatingActionButton.setOnClickListener(v ->
         {
             Intent intent = new Intent(Intent.ACTION_DIAL);
-            intent.setData(Uri.parse("tel:" + mPlace.contactPhone));
+            intent.setData(Uri.parse("tel:" + mPlace.getContactPhone()));
             
             if (ActivityCompat.checkSelfPermission(getContext(),
                     Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)
@@ -142,7 +131,7 @@ public class PlaceDetailsFragment extends Fragment
     private void loadPlaceImage()
     {
         StorageReference load = AndroidApplication.getStorageReference()
-                .child("/places/" + mPlace.name.toLowerCase() + ".jpg");
+                .child("/places/" + mPlace.getName().toLowerCase() + ".jpg");
         
         load.getDownloadUrl().addOnSuccessListener(uri ->
                 Picasso.get()

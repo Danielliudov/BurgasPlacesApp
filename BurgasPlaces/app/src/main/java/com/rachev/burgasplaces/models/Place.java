@@ -29,4 +29,49 @@ public class Place implements Serializable
         this.contactPhone = contactPhone;
         this.isFavourite = isFavourite;
     }
+    
+    public String getName()
+    {
+        return name;
+    }
+    
+    public String getAddress()
+    {
+        return address;
+    }
+    
+    public String getContactPhone()
+    {
+        return contactPhone;
+    }
+    
+    public String getDocumentId()
+    {
+        return documentId;
+    }
+    
+    public String getOpenHours()
+    {
+        return openHours;
+    }
+    
+    public String getShortInfo()
+    {
+        return shortInfo;
+    }
+    
+    public String getType()
+    {
+        return type;
+    }
+    
+    public boolean isFavourite()
+    {
+        return isFavourite;
+    }
+    
+    public void setFavourite(boolean favourite)
+    {
+        isFavourite = favourite;
+    }
 }

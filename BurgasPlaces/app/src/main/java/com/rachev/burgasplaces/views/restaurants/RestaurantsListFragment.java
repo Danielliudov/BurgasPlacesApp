@@ -5,7 +5,6 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.*;
 import com.rachev.burgasplaces.AndroidApplication;
 import com.rachev.burgasplaces.R;
@@ -53,10 +52,10 @@ public class RestaurantsListFragment extends Fragment implements AdapterView.OnI
         mRestaurants = new ArrayList<>();
         AndroidApplication.getSuperheroRepository().getAll(places ->
                 places.stream()
-                        .filter(place -> place.type.equals(Constants.RESTAURANT))
+                        .filter(place -> place.getType().equals(Constants.RESTAURANT))
                         .forEach(place ->
                         {
-                            mRestaurantsAdapter.add(place.name);
+                            mRestaurantsAdapter.add(place.getName());
                             mRestaurants.add(place);
                         }));
         
@@ -68,7 +67,7 @@ public class RestaurantsListFragment extends Fragment implements AdapterView.OnI
         
         return view;
     }
-    
+   
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id)
     {
