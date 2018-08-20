@@ -69,7 +69,7 @@ public class FavouritePlacesListActivity extends BaseDrawerActivity implements N
         }
         
         mDoubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT)
+        Toast.makeText(this, Constants.DOUBLE_BACK_TOAST_MSG, Toast.LENGTH_SHORT)
                 .show();
     }
     
