@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.rachev.burgasplaces.BurgasPlacesApp;
 import com.rachev.burgasplaces.R;
 import com.rachev.burgasplaces.constants.Constants;
 import com.rachev.burgasplaces.views.base.BaseListFragment;
@@ -51,7 +52,7 @@ public class NightclubsListFragment extends BaseListFragment implements AdapterV
         });
         
         setPlacesList(new ArrayList<>());
-        loadListData(Constants.NIGHTCLUB);
+        loadListData(Constants.NIGHTCLUB, BurgasPlacesApp.getSuperheroRepository());
         
         return view;
     }

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.rachev.burgasplaces.BurgasPlacesApp;
 import com.rachev.burgasplaces.R;
 import com.rachev.burgasplaces.views.base.BaseListFragment;
 
@@ -49,14 +50,30 @@ public class FavouritePlacesListFragment extends BaseListFragment implements Ada
         });
         
         setPlacesList(new ArrayList<>());
-        loadListData(true);
         
         return view;
+    }
+    
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+    
+        setArrayAdapter(new ArrayAdapter<>(getContext(), R.layout.custom_simple_list1));
+        mFavouritePlacesListView.setAdapter(getArrayAdapter());
+        getPlacesList().clear();
+        loadListData(true, BurgasPlacesApp.getSuperheroRepository());
     }
     
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id)
     {
         getNavigator().navigateWith(getPlacesList().get(position));
+    }
+    
+    public void navigateToFirstListEntry()
+    {
+        loadListData(true, BurgasPlacesApp.getSuperheroRepository());
+        getNavigator().navigateWith(getPlacesList().get(0));
     }
 }

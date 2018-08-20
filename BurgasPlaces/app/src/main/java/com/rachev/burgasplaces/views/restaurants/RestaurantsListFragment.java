@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+import com.rachev.burgasplaces.BurgasPlacesApp;
 import com.rachev.burgasplaces.R;
 import com.rachev.burgasplaces.constants.Constants;
 import com.rachev.burgasplaces.views.base.BaseListFragment;
@@ -48,7 +49,7 @@ public class RestaurantsListFragment extends BaseListFragment implements Adapter
         });
         
         setPlacesList(new ArrayList<>());
-        loadListData(Constants.RESTAURANT);
+        loadListData(Constants.RESTAURANT, BurgasPlacesApp.getSuperheroRepository());
         
         return view;
     }

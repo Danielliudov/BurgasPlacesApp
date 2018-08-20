@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +22,11 @@ import com.rachev.burgasplaces.BurgasPlacesApp;
 import com.rachev.burgasplaces.R;
 import com.rachev.burgasplaces.constants.Constants;
 import com.rachev.burgasplaces.models.Place;
+import com.rachev.burgasplaces.repositories.base.Repository;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +34,7 @@ import com.squareup.picasso.Picasso;
 public class PlaceDetailsFragment extends Fragment
 {
     private Place mPlace;
+    private boolean isFirstViewLoad;
     private TextView mPlaceNameTextView;
     private TextView mPlaceAddressTextView;
     private TextView mPlaceOpenHoursTextView;
@@ -54,6 +59,9 @@ public class PlaceDetailsFragment extends Fragment
     {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_place_details, container, false);
+        
+        if (mPlace == null)
+            mPlace = new Place();
         
         mPlaceNameTextView = view.findViewById(R.id.tv_place_name);
         mPlaceNameTextView.setText(mPlace.getName());
@@ -142,6 +150,9 @@ public class PlaceDetailsFragment extends Fragment
     
     private void loadPlaceImage()
     {
+        if (mPlace.getName() == null)
+            mPlace.setName("");
+        
         StorageReference load = BurgasPlacesApp.getStorageReference()
                 .child("/places/" + mPlace.getName().toLowerCase() + ".jpg");
         

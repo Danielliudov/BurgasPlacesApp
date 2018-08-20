@@ -19,7 +19,7 @@ public class PlaceDetailsActivity extends Activity
         
         mPlaceDetailsFragment = PlaceDetailsFragment.getInstance();
         mPlaceDetailsFragment.setPlace(place);
-    
+        
         getFragmentManager()
                 .beginTransaction()
                 .replace(R.id.content_details, mPlaceDetailsFragment)

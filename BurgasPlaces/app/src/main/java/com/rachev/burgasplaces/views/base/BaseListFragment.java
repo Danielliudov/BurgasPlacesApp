@@ -3,9 +3,9 @@ package com.rachev.burgasplaces.views.base;
 import android.app.Fragment;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import com.rachev.burgasplaces.BurgasPlacesApp;
 import com.rachev.burgasplaces.constants.Constants;
 import com.rachev.burgasplaces.models.Place;
+import com.rachev.burgasplaces.repositories.base.Repository;
 import com.rachev.burgasplaces.uiutils.ImagePreviewer;
 import com.rachev.burgasplaces.uiutils.ListLoader;
 import com.rachev.burgasplaces.uiutils.Navigator;
@@ -86,9 +86,9 @@ public abstract class BaseListFragment extends Fragment implements ListLoader
     }
     
     @Override
-    public void loadListData(Object filter)
+    public void loadListData(Object filter, Repository<Place> repository)
     {
-        BurgasPlacesApp.getSuperheroRepository().getAll(places ->
+        repository.getAll(places ->
                 places.stream()
                         .filter(getPredicate(filter))
                         .forEach(place ->

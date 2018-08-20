@@ -43,6 +43,7 @@ public class NightclubsListActivity extends BaseDrawerActivity implements Naviga
         if (!mIsPhone)
         {
             mPlaceDetailsFragment = PlaceDetailsFragment.getInstance();
+            mPlaceDetailsFragment.setPlace(new Place());
             transaction.replace(R.id.content_nightclubs_details, mPlaceDetailsFragment);
         }
         

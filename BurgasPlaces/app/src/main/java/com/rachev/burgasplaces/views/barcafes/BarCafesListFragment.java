@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.rachev.burgasplaces.BurgasPlacesApp;
 import com.rachev.burgasplaces.R;
 import com.rachev.burgasplaces.constants.Constants;
 import com.rachev.burgasplaces.views.base.BaseListFragment;
@@ -50,7 +51,7 @@ public class BarCafesListFragment extends BaseListFragment implements AdapterVie
         });
     
         setPlacesList(new ArrayList<>());
-        loadListData(Constants.BAR_CAFE);
+        loadListData(Constants.BAR_CAFE, BurgasPlacesApp.getSuperheroRepository());
         
         return view;
     }

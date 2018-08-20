@@ -57,7 +57,7 @@ public class FastFoodPlacesListActivity extends BaseDrawerActivity implements Na
         {
             Intent intent = new Intent(this, PlaceDetailsActivity.class);
             intent.putExtra("obj", place);
-            
+          
             startActivity(intent);
         } else
             mPlaceDetailsFragment.setPlace(place);
