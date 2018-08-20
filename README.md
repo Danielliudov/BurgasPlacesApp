@@ -6,12 +6,10 @@
 
 **<h1>Screenshots: </h1>**
 
-![](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/list.png =300x533)
-
-![](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/details.png =300x533)
-
-![test](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/drawer.png | width=300)
+![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/list.png)
+![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/details.png)
+![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/drawer.png)
 
 **<h1>UML Diagram:</h1>**
 
-![](https://github.com/brightVision97/BurgasPlacesApp/blob/master/uml_diagram.bmp)
+![Alt text](https://github.com/brightVision97/BurgasPlacesApp/blob/master/uml_diagram.bmp)
