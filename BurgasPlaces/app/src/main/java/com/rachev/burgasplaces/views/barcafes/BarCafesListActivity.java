@@ -49,6 +49,8 @@ public class BarCafesListActivity extends BaseDrawerActivity implements Navigato
         transaction.commit();
     }
     
+    
+    
     @Override
     public void navigateWith(Place place)
     {

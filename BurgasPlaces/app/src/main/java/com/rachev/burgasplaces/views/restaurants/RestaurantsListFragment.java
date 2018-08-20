@@ -1,7 +1,10 @@
 package com.rachev.burgasplaces.views.restaurants;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,7 +70,7 @@ public class RestaurantsListFragment extends Fragment implements AdapterView.OnI
         
         return view;
     }
-   
+    
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id)
     {
