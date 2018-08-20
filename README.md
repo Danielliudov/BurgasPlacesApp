@@ -7,7 +7,9 @@
 **<h1>Screenshots: </h1>**
 
 ![](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/list.png =300x533)
+
 ![](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/details.png =300x533)
+
 ![](https://github.com/brightVision97/BurgasPlacesApp/blob/master/screenshots/drawer.png =300x533)
 
 **<h1>UML Diagram:</h1>**
