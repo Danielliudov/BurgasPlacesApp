@@ -36,7 +36,6 @@ public class PlaceDetailsFragment extends Fragment
     private TextView mPlaceShortInfoTextView;
     private ImageView mPlaceImageView;
     private FloatingActionButton mDialFloatingActionButton;
-    private View mBackgroundImage;
     private MaterialFavoriteButton materialFavoriteButton;
     
     public PlaceDetailsFragment()
@@ -56,9 +55,6 @@ public class PlaceDetailsFragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_place_details, container, false);
         
-        mBackgroundImage = view.findViewById(R.id.background);
-        mBackgroundImage.getBackground().setAlpha(Constants.OPACITY_80);
-        
         mPlaceNameTextView = view.findViewById(R.id.tv_place_name);
         mPlaceNameTextView.setText(mPlace.name);
         
@@ -72,18 +68,29 @@ public class PlaceDetailsFragment extends Fragment
         mPlaceShortInfoTextView.setText(mPlace.shortInfo);
         
         materialFavoriteButton = view.findViewById(R.id.fav_button);
+        if (mPlace.isFavourite)
+        {
+            materialFavoriteButton.setAnimateFavorite(false);
+            materialFavoriteButton.setFavorite(true);
+        } else
+            materialFavoriteButton.setFavorite(false);
+        
         materialFavoriteButton.setOnFavoriteChangeListener((buttonView, favorite) ->
         {
             if (favorite)
             {
                 mPlace.isFavourite = true;
+                materialFavoriteButton.setAnimateFavorite(true);
                 
                 FirebaseFirestore.getInstance()
                         .collection("places")
                         .document(mPlace.documentId)
                         .set(mPlace, SetOptions.merge())
                         .addOnSuccessListener(aVoid ->
-                                Toast.makeText(getContext(), "Заведението добавено към любими", Toast.LENGTH_SHORT)
+                                Toast.makeText(
+                                        getContext(),
+                                        Constants.PLACE_FAV_ADDED_MSG,
+                                        Toast.LENGTH_SHORT)
                                         .show())
                         .addOnFailureListener(e ->
                                 Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT)
@@ -91,13 +98,17 @@ public class PlaceDetailsFragment extends Fragment
             } else
             {
                 mPlace.isFavourite = false;
+                materialFavoriteButton.setFavorite(false);
                 
                 FirebaseFirestore.getInstance()
                         .collection("places")
                         .document(mPlace.documentId)
                         .set(mPlace, SetOptions.merge())
                         .addOnSuccessListener(aVoid ->
-                                Toast.makeText(getContext(), "Заведението премахнато от любими", Toast.LENGTH_SHORT)
+                                Toast.makeText(
+                                        getContext(),
+                                        Constants.PALCE_FAV_REMOVED_MSG,
+                                        Toast.LENGTH_SHORT)
                                         .show())
                         .addOnFailureListener(e ->
                                 Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT)

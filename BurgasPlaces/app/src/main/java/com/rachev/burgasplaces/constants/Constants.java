@@ -15,6 +15,8 @@ public class Constants
     public static final String NIGHTCLUBS_TITLE = "Нощни заведения";
     public static final String DAY_AND_NIGHT_PLACES_TITLE = "Денонощни заведения";
     
-    public static final int OPACITY_80 = 80;
+    public static final String PLACE_FAV_ADDED_MSG = "Заведението добавено към любими";
+    public static final String PALCE_FAV_REMOVED_MSG = "Заведението премахнато от любими";
+    
     public static final int DIALER_REQUEST_CODE = 10;
 }

@@ -30,7 +30,7 @@
             android:name=".views.details.PlaceDetailsActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity android:name=".views.dayandnight.DayAndNightPlacesListActivity" />
-        <activity android:name=".views.fastfood.FastFoodPlacesListActivity"></activity>
+        <activity android:name=".views.fastfood.FastFoodPlacesListActivity" />
     </application>
 
 </manifest>
