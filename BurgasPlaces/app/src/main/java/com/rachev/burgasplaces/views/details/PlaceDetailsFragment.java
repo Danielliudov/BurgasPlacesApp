@@ -22,11 +22,7 @@ import com.rachev.burgasplaces.BurgasPlacesApp;
 import com.rachev.burgasplaces.R;
 import com.rachev.burgasplaces.constants.Constants;
 import com.rachev.burgasplaces.models.Place;
-import com.rachev.burgasplaces.repositories.base.Repository;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,9 +55,6 @@ public class PlaceDetailsFragment extends Fragment
     {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_place_details, container, false);
-        
-        if (mPlace == null)
-            mPlace = new Place();
         
         mPlaceNameTextView = view.findViewById(R.id.tv_place_name);
         mPlaceNameTextView.setText(mPlace.getName());
@@ -150,9 +143,6 @@ public class PlaceDetailsFragment extends Fragment
     
     private void loadPlaceImage()
     {
-        if (mPlace.getName() == null)
-            mPlace.setName("");
-        
         StorageReference load = BurgasPlacesApp.getStorageReference()
                 .child("/places/" + mPlace.getName().toLowerCase() + ".jpg");
         

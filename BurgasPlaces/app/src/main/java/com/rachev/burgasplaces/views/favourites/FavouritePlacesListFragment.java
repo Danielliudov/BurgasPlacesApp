@@ -70,10 +70,4 @@ public class FavouritePlacesListFragment extends BaseListFragment implements Ada
     {
         getNavigator().navigateWith(getPlacesList().get(position));
     }
-    
-    public void navigateToFirstListEntry()
-    {
-        loadListData(true, BurgasPlacesApp.getSuperheroRepository());
-        getNavigator().navigateWith(getPlacesList().get(0));
-    }
 }
